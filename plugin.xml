@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-app-ota-updater" version="0.2">
+    <name>App OTA-Updater</name>
+    <description>Cordova App OTA-Updater Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,kiosk,launcher</keywords>
+
+    <engines>
+	<engine name="cordova" version=">=3.2.0" />
+    </engines>
+
+    <js-module src="www/AppOTAUpdater.js" name="app-ota-updater">
+        <clobbers target="window.AppOTAUpdater" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <feature name="AppOTAUpdaterPlugin">
+                <param name="android-package" value="org.cordova.plugin.labs.AppOTAUpdater.AppOTAUpdaterPlugin" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/AppOTAUpdaterPlugin.java" target-dir="src/org/apache/cordova/labs/appotaupdater" />
+        <source-file src="src/android/UpdateApp.java" target-dir="src/org/apache/cordova/labs/appotaupdater" />
+
+        <config-file parent="/*" target="config.xml">
+            <feature name="UpdateApp">
+                <param name="android-package" value="org.cordova.plugin.labs.AppOTAUpdater.UpdateApp" />
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.DELETE_PACKAGES" />
+        </config-file>
+
+    </platform>
+</plugin>

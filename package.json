@@ -1,0 +1,13 @@
+{
+  "name": "cordova-plugin-app-ota-updater",
+  "version": "0.0.1",
+  "description": "Simple apk installer, which takes a url, downloads the apk via http and installs it on the device.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guatedude2/cordova-plugin-app-ota-updater.git"
+  },
+  "bugs": {
+    "url": "https://github.com/guatedude2/cordova-plugin-app-ota-updater/issues"
+  },
+  "homepage": "https://github.com/guatedude2/cordova-plugin-app-ota-updater#readme"
+}
